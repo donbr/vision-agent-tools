@@ -5,7 +5,9 @@ from pydantic import BaseModel, Field
 from qreader import QReader
 
 from vision_agent_tools.tools.shared_types import BaseTool, Polygon, Point, BoundingBox
-
+import weave
+from config import WANDB_API_KEY, WEAVE_PROJECT
+weave.init(WEAVE_PROJECT)
 
 class QRCodeDetection(BaseModel):
     """
@@ -43,6 +45,7 @@ class QRReader(BaseTool):
 
         self.qreader = QReader()
 
+    @weave.op()
     def __call__(self, image: Image.Image) -> list[QRCodeDetection]:
         """
         Detects QR codes in an image.

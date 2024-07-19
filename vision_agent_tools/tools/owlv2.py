@@ -6,11 +6,13 @@ from pydantic import BaseModel
 from transformers import Owlv2ForObjectDetection, Owlv2Processor
 
 from vision_agent_tools.tools.shared_types import BaseTool
+import weave
+from config import WANDB_API_KEY, WEAVE_PROJECT
+weave.init(WEAVE_PROJECT)
 
 MODEL_NAME = "google/owlv2-base-patch16-ensemble"
 PROCESSOR_NAME = "google/owlv2-base-patch16-ensemble"
 DEFAULT_CONFIDENCE = 0.2
-
 
 class Owlv2InferenceData(BaseModel):
     """
@@ -47,6 +49,7 @@ class Owlv2(BaseTool):
         self._processor = Owlv2Processor.from_pretrained(PROCESSOR_NAME)
         self._model = Owlv2ForObjectDetection.from_pretrained(MODEL_NAME)
 
+    @weave.op()
     def __call__(
         self,
         image: Image.Image,

@@ -14,7 +14,9 @@ from typing import Union, Any
 from vision_agent_tools.tools.shared_types import BaseTool
 from depth_anything_v2.dpt import DepthAnythingV2 as DepthAnythingV2Model
 from pydantic import BaseModel
-
+import weave
+from config import WANDB_API_KEY, WEAVE_PROJECT
+weave.init(WEAVE_PROJECT)
 
 class DepthMap(BaseModel):
     """Represents the depth map of an image.
@@ -69,6 +71,7 @@ class DepthAnythingV2(BaseTool):
         self._model.to(self.device)
         self._model.eval()
 
+    @weave.op()
     @torch.no_grad()
     def __call__(self, image: Union[str, Image.Image]) -> DepthMap:
         """
