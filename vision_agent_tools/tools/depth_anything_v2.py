@@ -15,7 +15,7 @@ from vision_agent_tools.tools.shared_types import BaseTool
 from depth_anything_v2.dpt import DepthAnythingV2 as DepthAnythingV2Model
 from pydantic import BaseModel
 import weave
-from config import WANDB_API_KEY, WEAVE_PROJECT
+from .config import WANDB_API_KEY, WEAVE_PROJECT
 weave.init(WEAVE_PROJECT)
 
 class DepthMap(BaseModel):

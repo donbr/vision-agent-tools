@@ -15,7 +15,7 @@ from torchvision import transforms as T
 from pydantic import BaseModel
 from vision_agent_tools.tools.shared_types import BaseTool
 import weave
-from config import WANDB_API_KEY, WEAVE_PROJECT
+from .config import WANDB_API_KEY, WEAVE_PROJECT
 weave.init(WEAVE_PROJECT)
 
 class CountingDetection(BaseModel):
