@@ -6,8 +6,7 @@ from PIL import Image
 from transformers import AutoModelForCausalLM, AutoProcessor
 from vision_agent_tools.tools.shared_types import BaseTool
 import weave
-from .config import WANDB_API_KEY, WEAVE_PROJECT
-weave.init(WEAVE_PROJECT)
+
 
 MODEL_NAME = "microsoft/Florence-2-base"
 PROCESSOR_NAME = "microsoft/Florence-2-base"

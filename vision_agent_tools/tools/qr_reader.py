@@ -6,8 +6,7 @@ from qreader import QReader
 
 from vision_agent_tools.tools.shared_types import BaseTool, Polygon, Point, BoundingBox
 import weave
-from .config import WANDB_API_KEY, WEAVE_PROJECT
-weave.init(WEAVE_PROJECT)
+
 
 class QRCodeDetection(BaseModel):
     """

@@ -5,8 +5,7 @@ from pydantic import BaseModel
 from transformers import AutoModelForImageClassification, ViTImageProcessor
 from vision_agent_tools.tools.shared_types import BaseTool
 import weave
-from .config import WANDB_API_KEY, WEAVE_PROJECT
-weave.init(WEAVE_PROJECT)
+
 
 CHECKPOINT = "Falconsai/nsfw_image_detection"
 

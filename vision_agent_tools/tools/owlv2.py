@@ -7,8 +7,7 @@ from transformers import Owlv2ForObjectDetection, Owlv2Processor
 
 from vision_agent_tools.tools.shared_types import BaseTool
 import weave
-from .config import WANDB_API_KEY, WEAVE_PROJECT
-weave.init(WEAVE_PROJECT)
+
 
 MODEL_NAME = "google/owlv2-base-patch16-ensemble"
 PROCESSOR_NAME = "google/owlv2-base-patch16-ensemble"
