@@ -3009,7 +3009,7 @@ six = ">=1.5"
 name = "python-dotenv"
 version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
-optional = true
+optional = false
 python-versions = ">=3.8"
 files = [
     {file = "python-dotenv-1.0.1.tar.gz", hash = "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"},
@@ -5073,4 +5073,4 @@ qr-reader = ["qreader"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<4.0"
-content-hash = "de313bbbd5cec3aca2e26702bf1058dd85dfcacd64b50d20e891d7e8fe78962a"
+content-hash = "66b47bb40083867d73d6773f81f2d9032bf49c3313942048badf127bd622dd65"
