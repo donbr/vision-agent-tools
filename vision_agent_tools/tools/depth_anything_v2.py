@@ -14,7 +14,7 @@ from typing import Union, Any
 from vision_agent_tools.tools.shared_types import BaseTool
 from depth_anything_v2.dpt import DepthAnythingV2 as DepthAnythingV2Model
 from pydantic import BaseModel
-import weave
+from langsmith import traceable
 
 
 class DepthMap(BaseModel):
@@ -70,7 +70,7 @@ class DepthAnythingV2(BaseTool):
         self._model.to(self.device)
         self._model.eval()
 
-    @weave.op()
+    @traceable
     @torch.no_grad()
     def __call__(self, image: Union[str, Image.Image]) -> DepthMap:
         """

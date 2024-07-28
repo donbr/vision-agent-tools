@@ -4,7 +4,7 @@ from PIL import Image
 from pydantic import BaseModel
 from transformers import AutoModelForImageClassification, ViTImageProcessor
 from vision_agent_tools.tools.shared_types import BaseTool
-import weave
+from langsmith import traceable
 
 
 CHECKPOINT = "Falconsai/nsfw_image_detection"
@@ -46,7 +46,7 @@ class NSFWClassification(BaseTool):
         )
         self._model.to(self.device)
 
-    @weave.op()
+    @traceable
     def __call__(
         self,
         image: Image.Image,

@@ -5,7 +5,7 @@ from enum import Enum
 from PIL import Image
 from transformers import AutoModelForCausalLM, AutoProcessor
 from vision_agent_tools.tools.shared_types import BaseTool
-import weave
+from langsmith import traceable
 
 
 MODEL_NAME = "microsoft/Florence-2-base"
@@ -76,7 +76,7 @@ class Florencev2(BaseTool):
         )
         self._model.to(self.device)
 
-    @weave.op()
+    @traceable
     def __call__(
         self, image: Image.Image, task: PromptTask, prompt: Optional[str] = ""
     ) -> Any:

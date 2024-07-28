@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from transformers import Owlv2ForObjectDetection, Owlv2Processor
 
 from vision_agent_tools.tools.shared_types import BaseTool
-import weave
+from langsmith import traceable
 
 
 MODEL_NAME = "google/owlv2-base-patch16-ensemble"
@@ -48,7 +48,7 @@ class Owlv2(BaseTool):
         self._processor = Owlv2Processor.from_pretrained(PROCESSOR_NAME)
         self._model = Owlv2ForObjectDetection.from_pretrained(MODEL_NAME)
 
-    @weave.op()
+    @traceable
     def __call__(
         self,
         image: Image.Image,
