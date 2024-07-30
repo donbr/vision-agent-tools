@@ -14,7 +14,7 @@ from torch import nn
 from torchvision import transforms as T
 from pydantic import BaseModel
 from vision_agent_tools.tools.shared_types import BaseTool
-from langsmith import traceable
+import weave
 
 
 class CountingDetection(BaseModel):
@@ -99,7 +99,7 @@ class ZeroShotCounting(BaseTool):
         self._model.eval()
         self.img_size = img_size
 
-    @traceable
+    @weave.op()
     @torch.no_grad()
     def __call__(
         self, image: Union[str, Image.Image], bbox: Optional[List[float]] = None
