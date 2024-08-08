@@ -1,9 +1,10 @@
 # donbr edits:
 
-my changes so far are limited to using the Weave library from Weights & Biases to instrument LLM function calls.  LandingAI's approach to wrapping these calls in microservices is brilliant and this was a simple way to understand the flow.
+my changes so far are limited to using the Weave library from Weights & Biases to instrument LLM function calls.  LandingAI's approach to wrapping these calls in microservices is brilliant and this was a simple way to confirm the flow.
 - @weave.op():  search for this string to identify which functions are currently instrumented
-- next step would be to implement similar instrumentation of the direct LLM calls to get a more grass roots understanding of the individual model interactions
-- a logical step in the near future would be to use LangGraph to manage the coordination between multiple vision agents.  I had an issue with LangSmith and image data in the UI that has delayed this.
+- next steps may include:
+    - integration of fine-tuned Florence 2 models
+    - use of LangGraph to manage the coordination between multiple vision agents
 
 # Vision tools
 
